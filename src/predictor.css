@@ -1,0 +1,41 @@
+.pr-page{display:grid;grid-template-columns:minmax(240px,340px) 1fr;min-height:70vh;background:#f6f4ee;color:#1d2b4f;font-family:Inter,system-ui,sans-serif}
+.pr-aside{padding:48px 36px;background:linear-gradient(180deg,#ece8dc,#f6f4ee)}
+.pr-aside h1,.pr-results h1,.pr-card h2{font-family:"Playfair Display",Georgia,serif;font-weight:700;color:#1d2b4f;line-height:1.15}
+.pr-aside h1{font-size:40px;margin:14px 0}.pr-aside p{color:#5b6580;line-height:1.6}
+.pr-eyebrow{font-size:11px;letter-spacing:.16em;font-weight:700;color:#5b6a8c}
+.pr-main{padding:36px 40px;max-width:900px}
+.pr-steps{list-style:none;display:flex;gap:10px;margin:0 0 26px;padding:0;flex-wrap:wrap}
+.pr-steps li{display:flex;align-items:center;gap:8px;font-size:13px;color:#7a829a;flex:1;min-width:120px}
+.pr-steps li span{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;border:1px solid #b9bfd0;background:#fff;font-size:12px}
+.pr-steps li.on{color:#1d2b4f;font-weight:700}.pr-steps li.on span{background:#1d2b4f;color:#fff;border-color:#1d2b4f}
+.pr-steps li.done span{background:#dfe6f1;border-color:#6f87b3;color:#1d2b4f}
+.pr-card{background:#fbfaf6;border:1px solid #dcd8c9;border-radius:12px;padding:28px 30px}
+.pr-card h2{font-size:30px;margin:8px 0 18px}
+.pr-label{display:block;margin:18px 0 8px;font-weight:700;font-size:14px}
+.pr-input{width:100%;max-width:420px;padding:11px 13px;border:1px solid #c9cddb;border-radius:6px;background:#fff;font-size:15px;color:#1d2b4f}
+.pr-exams{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.pr-exams button,.pr-seg button,.pr-pills button{border:1px solid #c9cddb;background:#fff;border-radius:7px;padding:10px 13px;text-align:left;cursor:pointer;color:#1d2b4f;font-size:13.5px}
+.pr-exams button b{display:block;font-family:"Playfair Display",Georgia,serif;font-size:17px}.pr-exams small{color:#6c7590;font-size:11.5px}
+.pr-exams button:disabled{opacity:.5;cursor:not-allowed}
+.sel{background:#dfe6f1!important;border-color:#6f87b3!important;box-shadow:inset 0 0 0 1px #6f87b3}
+.pr-seg{display:inline-flex}.pr-seg button{border-radius:0;text-align:center;min-width:90px}.pr-seg button:first-child{border-radius:7px 0 0 7px}.pr-seg button:last-child{border-radius:0 7px 7px 0}
+.pr-pills{display:flex;flex-wrap:wrap;gap:8px}.pr-pills button{border-radius:999px;padding:8px 14px}
+.pr-review{display:grid;grid-template-columns:110px 1fr;gap:6px 14px;margin:22px 0 0;padding-top:16px;border-top:1px solid #e3dfd1;font-size:14px}
+.pr-review dt{color:#6c7590}.pr-review dd{margin:0;font-weight:600}
+.pr-nav{display:flex;justify-content:space-between;margin-top:18px}
+.pr-next,.pr-back{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:6px;font-size:14.5px;cursor:pointer}
+.pr-next{background:#4b6890;color:#fff;border:0}.pr-next:disabled{opacity:.45;cursor:not-allowed}
+.pr-back{background:transparent;border:1px solid #c9cddb;color:#1d2b4f}.pr-back:disabled{visibility:hidden}
+.pr-results{grid-column:1/-1;padding:40px;max-width:1000px;margin:0 auto;width:100%}
+.pr-results h1{font-size:36px;margin:10px 0 14px}
+.pr-chips{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:24px}
+.pr-chips span{background:#dfe6f1;border-radius:999px;padding:5px 12px;font-size:12.5px}
+.pr-link{background:none;border:0;color:#4b6890;text-decoration:underline;cursor:pointer;font-size:13px}
+.pr-bucket h2{font-family:"Playfair Display",Georgia,serif;font-size:22px;margin:28px 0 10px}.pr-bucket h2 span{font-family:Inter,sans-serif;font-size:13px;color:#6c7590;margin-left:6px}
+.pr-row{display:flex;justify-content:space-between;gap:20px;padding:14px 16px;background:#fbfaf6;border:1px solid #dcd8c9;border-radius:9px;margin-bottom:8px}
+.pr-row h3{margin:0 0 4px;font-size:15.5px}.pr-row p{margin:0;font-size:13px;color:#5b6580}
+.pr-row code{font-size:11px;background:#e9e6da;border-radius:4px;padding:1px 6px;margin-left:6px;font-weight:500}
+.pr-num{text-align:right;min-width:230px}.pr-num b{display:block;font-size:20px;font-family:"Playfair Display",Georgia,serif}.pr-num small{display:block;font-size:11.5px;color:#6c7590;line-height:1.5}
+.pr-more{margin:6px 0;background:#fff;border:1px solid #c9cddb;border-radius:6px;padding:8px 16px;cursor:pointer}
+.pr-foot{margin-top:26px;font-size:12.5px;color:#6c7590}.pr-error{color:#a33}
+@media(max-width:760px){.pr-page{grid-template-columns:1fr}.pr-aside{padding:28px 22px}.pr-aside h1{font-size:30px}.pr-main{padding:22px 16px}.pr-row{flex-direction:column}.pr-num{text-align:left}}
