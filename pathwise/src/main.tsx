@@ -2,6 +2,10 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import "./styles.css";
+<<<<<<< HEAD
+=======
+import "./theme.css";
+>>>>>>> 8691b24 (UI chnages and college predictor added)
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>

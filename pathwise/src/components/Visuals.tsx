@@ -50,12 +50,20 @@ const tones = ["t-lav", "t-mint", "t-peach", "t-blush", "t-blue"];
 
 /* ---------- 1. Homepage: whole counselling journey ---------- */
 
+<<<<<<< HEAD
 export type GoTarget = "start" | "map" | "pathways" | "compare" | "after10" | "after12" | "colleges";
+=======
+export type GoTarget = "start" | "pathways" | "compare" | "after10" | "after12" | "colleges";
+>>>>>>> 8691b24 (UI chnages and college predictor added)
 
 export function JourneyOverview({ onGo }: { onGo: (t: GoTarget) => void }) {
   const stages: { n: string; title: string; text: string; tone: string; icon: ReactNode; go: GoTarget; extra?: { label: string; go: GoTarget } }[] = [
     { n: "1", title: "Tell us about you", text: "Short guided questions, one at a time.", tone: "t-lav", icon: <Compass size={18} />, go: "start" },
+<<<<<<< HEAD
     { n: "2", title: "See your route map", text: "Next actions and career ideas that update with your answers.", tone: "t-mint", icon: <Map size={18} />, go: "map" },
+=======
+    { n: "2", title: "See matching careers", text: "A chart of the careers that fit your answers.", tone: "t-mint", icon: <Map size={18} />, go: "pathways" },
+>>>>>>> 8691b24 (UI chnages and college predictor added)
     { n: "3", title: "Explore and compare", text: "Career pages, roadmaps and side-by-side comparison.", tone: "t-peach", icon: <Search size={18} />, go: "pathways" },
     { n: "4", title: "Choose your route", text: "Class 11 streams, or courses and colleges after Class 12.", tone: "t-blush", icon: <GraduationCap size={18} />, go: "after10", extra: { label: "After Class 12", go: "after12" } },
     { n: "5", title: "Research and apply", text: "Official sources, cutoff evidence and counselling steps.", tone: "t-blue", icon: <School size={18} />, go: "colleges" }
@@ -336,8 +344,11 @@ export function CareerRoute({ p, skills, roadmapTitles, roadmapItems, related, o
 /* ---------- 5. Comparison: charts under the original table ---------- */
 
 export function CompareVisuals({ a, b }: { a: Pathway; b: Pathway }) {
+<<<<<<< HEAD
   const rows: [string, number, number][] = [["Study topics", a.study_topics.length, b.study_topics.length], ["Possible job roles", a.job_roles.length, b.job_roles.length], ["Sectors", a.industries.length, b.industries.length], ["Checks before choosing", a.next_steps.length, b.next_steps.length]];
   const maxN = Math.max(1, ...rows.flatMap(r => [r[1], r[2]]));
+=======
+>>>>>>> 8691b24 (UI chnages and college predictor added)
   const da = parseYears(a.duration), db = parseYears(b.duration);
   const lc = (x: string[]) => x.map(s => s.toLowerCase());
   const overlap = (xa: string[], xb: string[]) => {
@@ -347,7 +358,11 @@ export function CompareVisuals({ a, b }: { a: Pathway; b: Pathway }) {
   const sets: [string, ReturnType<typeof overlap>][] = [["Study topics", overlap(a.study_topics, b.study_topics)], ["Job roles", overlap(a.job_roles, b.job_roles)], ["Sectors", overlap(a.industries, b.industries)]];
   const bar = (r: [number, number] | null) => r ? { l: Math.min(r[0], 6) / 6 * 100, w: Math.max(3, (Math.min(r[1], 6) - Math.min(r[0], 6)) / 6 * 100) } : null;
   return (
+<<<<<<< HEAD
     <Fig className="vz-compare" title="At-a-glance comparison charts" desc={`Charts comparing ${a.title} with ${b.title}: duration range, counts of topics, roles, sectors and checks, and what the two options share. The full table above has all the text.`}>
+=======
+    <Fig className="vz-compare" title="At-a-glance comparison charts" desc={`Charts comparing ${a.title} with ${b.title}: duration range and what the two options share. The full table above has all the text.`}>
+>>>>>>> 8691b24 (UI chnages and college predictor added)
       <Legend items={[{ tone: "t-lav", label: a.title }, { tone: "t-peach", label: b.title }]} />
       <div className="vz-cmp-block">
         <h4>Typical duration <small>(read from each duration text; scale 0–6 years)</small></h4>
@@ -357,6 +372,7 @@ export function CompareVisuals({ a, b }: { a: Pathway; b: Pathway }) {
         })}
       </div>
       <div className="vz-cmp-block">
+<<<<<<< HEAD
         <h4>How much each entry lists <small>(counts from the catalogue — not a quality score)</small></h4>
         {rows.map(([label, x, y]) => (
           <div className="vz-bars" key={label}>
@@ -369,6 +385,8 @@ export function CompareVisuals({ a, b }: { a: Pathway; b: Pathway }) {
         ))}
       </div>
       <div className="vz-cmp-block">
+=======
+>>>>>>> 8691b24 (UI chnages and college predictor added)
         <h4>What they share and what is unique</h4>
         {sets.map(([label, o]) => (
           <div className="vz-overlap" key={label}>
@@ -583,7 +601,11 @@ export function ResourceSequence({ stream, exam }: { stream: StreamLike; exam: s
 
 /* ---------- 7. After Class 12 ---------- */
 
+<<<<<<< HEAD
 export function DecisionTree({ marks, degree, location, autonomy }: { marks: string; degree: string; location: string; autonomy: string }) {
+=======
+export function DecisionTree({ marks, degree, location, autonomy, onPredict }: { marks: string; degree: string; location: string; autonomy: string; onPredict?: () => void }) {
+>>>>>>> 8691b24 (UI chnages and college predictor added)
   const m = Math.max(0, Math.min(100, Number(marks) || 0));
   const auto = autonomy === "autonomous" ? "Autonomous" : autonomy === "non-autonomous" ? "Affiliated / non-autonomous" : "Both types";
   return (
@@ -601,7 +623,11 @@ export function DecisionTree({ marks, degree, location, autonomy }: { marks: str
             </span>
           </div>
         </li>
+<<<<<<< HEAD
         <li><div className="vz-vnode strong t-lav"><small>RESULT</small><b>A verified shortlist: preferred · realistic · backup</b><p>Built from official cutoff evidence, not from rankings alone.</p></div></li>
+=======
+        <li><button type="button" className="vz-vnode strong t-lav vz-vnode-cta" onClick={onPredict}><small>RESULT</small><b>See colleges that match your score</b><p>Open the College Predictor, built from official cutoff data.</p><span className="vz-cta-link">Open College Predictor <ArrowRight size={15} aria-hidden="true" /></span></button></li>
+>>>>>>> 8691b24 (UI chnages and college predictor added)
       </ol>
     </Fig>
   );
@@ -729,7 +755,11 @@ export function ReasoningChain({ items, onOpen }: { items: { p: Pathway; signals
 
 export function EvidenceBadge({ sourceUrl, mode }: { sourceUrl?: string; mode: "demo" | "live" | "error" }) {
   if (sourceUrl && mode === "live") return <span className="vz-badge official"><BadgeCheck size={12} aria-hidden="true" /> Source-backed</span>;
+<<<<<<< HEAD
   if (sourceUrl) return <span className="vz-badge estimate"><ShieldCheck size={12} aria-hidden="true" /> Demo guidance · verify at source</span>;
+=======
+  if (sourceUrl) return <span className="vz-badge estimate"><ShieldCheck size={12} aria-hidden="true" /> Guidance · verify at source</span>;
+>>>>>>> 8691b24 (UI chnages and college predictor added)
   return <span className="vz-badge none">General guidance · no source</span>;
 }
 
@@ -737,10 +767,17 @@ export function PlanFlow({ steps, done, mode, resultCount }: { steps: { title: s
   const nDone = done.filter(Boolean).length;
   return (
     <Fig className="vz-planflow" title="How this plan was built" desc={`Your answers and search lead to ${resultCount} source pages and ${steps.length} ordered steps. ${nDone} steps are ticked. Mode: ${mode === "live" ? "live sources" : "demo guidance"}.`}>
+<<<<<<< HEAD
       <Legend items={[{ tone: "t-mint", label: "Source-backed (live)" }, { tone: "t-peach", label: "Demo guidance, verify at source" }, { tone: "t-lav", label: "General guidance" }]} />
       <ol className="vz-flow compact">
         <li className="vz-flow-item"><div className="vz-flow-node t-lav"><small>INPUT</small><b>Your answers</b></div><Arrow /></li>
         <li className="vz-flow-item"><div className="vz-flow-node t-blue"><small>{mode === "live" ? "LIVE SEARCH" : "DEMO SOURCES"}</small><b>{resultCount} source pages</b></div><Arrow /></li>
+=======
+      <Legend items={[{ tone: "t-mint", label: "Source-backed (live)" }, { tone: "t-peach", label: "Guidance, verify at source" }, { tone: "t-lav", label: "General guidance" }]} />
+      <ol className="vz-flow compact">
+        <li className="vz-flow-item"><div className="vz-flow-node t-lav"><small>INPUT</small><b>Your answers</b></div><Arrow /></li>
+        <li className="vz-flow-item"><div className="vz-flow-node t-blue"><small>{mode === "live" ? "LIVE SEARCH" : "SOURCES"}</small><b>{resultCount} source pages</b></div><Arrow /></li>
+>>>>>>> 8691b24 (UI chnages and college predictor added)
         <li className="vz-flow-item"><div className="vz-flow-node t-peach"><small>PLAN</small><b>{steps.length} ordered steps</b></div><Arrow /></li>
         <li className="vz-flow-item"><div className="vz-flow-node t-mint"><small>YOU</small><b>{nDone} of {steps.length} ticked</b></div></li>
       </ol>
